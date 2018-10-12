@@ -136,7 +136,7 @@ a:hover {
 .resume-header {
   font-style: bold;
   text-decoration: underline;
-  padding-top: 24px;
+  padding-top: 60px;
   font-size: 24pt;
   text-align: center;
   color: #969391;
@@ -164,3 +164,4 @@ a:hover {
   border: 1pt solid black;
   margin: 7px;
 }
+
