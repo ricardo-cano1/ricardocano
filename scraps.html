@@ -1,20 +1,55 @@
 
 <body>
 
-<div class="page-wrapper">
+<div class="header"> <!-- beginning of header -->
+    <ul>
+      <li class="home-nav active"><h3><a href="#home">My Name</a></h3></li>
+      <li class="work-nav"><h3><a href="#work">Work</a></h3></li>
+      <li class="contact-nav"><h3><a href="#contact">Contact</a></h3></li>
+    </ul>
+  </div>
 
-<div class="nadja">Nadja Popovich</div>
 
-	<div class="section intro">
-		<p>I'm a journalist at The New York Times, where I make graphics and write about the environment, energy and other climate-related topics. Previously, I worked at The Guardian U.S. You can see some of my latest work <a href="https://www.nytimes.com/by/nadja-popovich" class="color-in" style="color: rgb(200, 76, 204);">right here</a> or scroll down for a few highlights.</p>
-	</div>
 
-	<div class="section in-touch">
-		<div class="text-wrapper">
-			<!-- <span>Get in touch:</span> -->
-			<div class="contact-img tweet"></div><a href="http://www.twitter.com/popovichN" class="color-in" style="color: rgb(200, 76, 204);">Tweet</a> or
-			<div class="contact-img email"></div><a href="mailto:nadja.popovich@nytimes.com" class="color-in" style="color: rgb(200, 76, 204);">Email me</a>
-		</div>
-	</div>
 
-	<div class="section clips">
+
+
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+  $('.header a').click(function(e) {
+    e.preventDefault();
+    var curInx = this.hash;
+    var target = $(curInx);
+    var targetOffset = target.offset().top;
+
+    $("body").animate({scrollTop:targetOffset}, 400, function() {
+      location.hash = curInx;
+    });
+
+
+  });
+
+
+  $(window).scroll(function() {
+      var sticky = function(index) {
+        $('li').removeClass('active'), $('.' + index + '-nav').addClass('active');
+      };
+    $('#container > div').each(function(){
+      var cur = $(this);
+      var curTop = cur.offset().top;
+      var curInx = cur.attr("id");
+      var sidebarTop = $('.'+curInx+'-nav').offset().top +60;
+        if (sidebarTop > curTop) {
+          sticky(curInx);
+        }
+    });
+  });
+
+  });
+
+</script>
+
+</body> <!-- end of body -->
